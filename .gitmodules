@@ -1,0 +1,3 @@
+[submodule "CSharpSourceCombiner"]
+	path = CSharpSourceCombiner
+	url = https://github.com/gamli/CSharpSourceCombiner.git
