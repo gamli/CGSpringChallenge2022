@@ -1,9 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="&quot;$(SolutionDir)CSharpSourceCombiner\SourceCombiner\Binary\SourceCombiner.exe&quot; &quot;$(SolutionDir)CGSpringChallenge2022\CGSpringChallenge2022.csproj&quot; &quot;$(SolutionDir)Codingame.cs&quot;" />
+    </Target>
 
 </Project>
