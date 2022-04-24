@@ -24,8 +24,8 @@ namespace CGSpringChallenge2022
             var healthMana2 = ReadInts();
 
             var monsters = new List<Monster>();
-            var heroes1 = new List<Vector2>();
-            var heroes2 = new List<Vector2>();
+            var heroes1 = new List<Hero>();
+            var heroes2 = new List<Hero>();
 
             var entityCount = int.Parse(Console.ReadLine()!);
 
@@ -60,7 +60,7 @@ namespace CGSpringChallenge2022
                 else
                 {
                     var heroes = type == 1 ? heroes1 : heroes2;
-                    heroes.Add(new Vector2(x, y));
+                    heroes.Add(new Hero(id, new Vector2(x, y)));
                 }
             }
 

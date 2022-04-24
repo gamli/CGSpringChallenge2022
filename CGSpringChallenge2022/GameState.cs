@@ -11,8 +11,8 @@ namespace CGSpringChallenge2022
         private readonly int _mana2;
         private readonly Vector2 _base1;
         private readonly Vector2 _base2;
-        private readonly List<Vector2> _heroes1;
-        private readonly List<Vector2> _heroes2;
+        private readonly List<Hero> _heroes1;
+        private readonly List<Hero> _heroes2;
         private readonly List<Monster> _monsters;
 
         public GameState(
@@ -23,8 +23,8 @@ namespace CGSpringChallenge2022
             Vector2 base1,
             Vector2 base2,
             List<Monster> monsters,
-            List<Vector2> heroes1,
-            List<Vector2> heroes2)
+            List<Hero> heroes1,
+            List<Hero> heroes2)
         {
             _lives1 = lives1;
             _lives2 = lives2;
@@ -40,7 +40,7 @@ namespace CGSpringChallenge2022
         public int Lives(int player) => player == 1 ? _lives1 : _lives2;
         public int Mana(int player) => player == 1 ? _mana1 : _mana2;
         public Vector2 Base(int player) => player == 1 ? _base1 : _base2;
-        public List<Vector2> Heroes(int player) => player == 1 ? _heroes1 : _heroes2;
+        public List<Hero> Heroes(int player) => player == 1 ? _heroes1 : _heroes2;
         public List<Monster> Monsters() => _monsters;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using CGSpringChallenge2022;
 
 /**
@@ -20,41 +22,44 @@ public class Player
         {
             var gameState = inputParser.Parse();
 
-            var myHeroes = gameState.Heroes(PLAYER_ME);
+            var heroes = gameState.Heroes(PLAYER_ME);
 
             var threats =
                 gameState.Monsters()
                          .Where(monster => monster.IsThreatForPlayer == PLAYER_ME)
                          .OrderBy(monster => Geometry.DistanceSqr(monster.Position, gameState.Base(PLAYER_ME)))
-                         .Take(3)
+                         .Take(heroes.Count)
                          .ToList();
+            
+            var availableHeroes = new HashSet<Hero>(heroes);
+            
+            var orders = new List<(int, string)>();
 
-            var orders =
-                myHeroes.Select(hero => threats.OrderBy(monster => Geometry.DistanceSqr(monster.Position, hero)).FirstOrDefault())
-                        .Select(
-                            nearestThreat =>
-                            {
-                                if (nearestThreat == null)
-                                {
-                                    return "WAIT";
-                                }
+            while (threats.Any() && availableHeroes.Any())
+            {
+                foreach (var monster in threats)
+                {
+                    if (!availableHeroes.Any())
+                    {
+                        break;
+                    }
+                    
+                    var nearestHero = availableHeroes.OrderBy(hero => Geometry.DistanceSqr(hero.Position, monster.Position)).First();
+                    var heroIdx = heroes.IndexOf(nearestHero);
+                    var order = "MOVE " + (int)monster.Position.X + " " + +(int)monster.Position.Y;
+                    orders.Add((heroIdx, order));
+                    availableHeroes.Remove(nearestHero);
+                    
+                    Console.Error.WriteLine("Hero " + nearestHero.Id + " moving towards monster " + monster.Id);
+                }
+            }
+            
+            orders.AddRange(availableHeroes.Select(hero => (heroes.IndexOf(hero), "WAIT")));
 
-                                return "MOVE " + (int)nearestThreat.Position.X + " " + +(int)nearestThreat.Position.Y;
-                            })
-                        .ToList();
-
-            foreach (var order in orders)
+            foreach (var order in orders.OrderBy(idxCommand => idxCommand.Item1).Select(idxCommand => idxCommand.Item2))
             {
                 Console.WriteLine(order);
             }
-
-            // for (var i = 0; i < myHeroes.Count; i++)
-            // {
-            //     
-            //     
-            //     // In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
-            //     // Console.WriteLine("WAIT");
-            // }
         }
     }
 }
