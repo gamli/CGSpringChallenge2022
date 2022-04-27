@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b573d40d-47a6-4212-82a9-bd2495c6acfb" name="Changes" comment="First Bot Commit">
-      <change afterPath="$PROJECT_DIR$/CGSpringChallenge2022/Hero.cs" afterDir="false" />
+    <list default="true" id="b573d40d-47a6-4212-82a9-bd2495c6acfb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CGSpringChallenge2022/PlayerTurn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGSpringChallenge2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGSpringChallenge2022/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CGSpringChallenge2022/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CGSpringChallenge2022/GameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CGSpringChallenge2022/InputParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CGSpringChallenge2022/InputParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CGSpringChallenge2022/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CGSpringChallenge2022/Monster.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CGSpringChallenge2022/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CGSpringChallenge2022/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Codingame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Codingame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codingame.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +28,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../VisualStudio/strategy_game/StrategyGame/Tools/Geometry/Circle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f14b2b38e41a86c6f3f927d5b5586e45cac2b8789c4c170faa6891a27ecf1d4/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Codingame.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/Projects/codingame/CGSpringChallenge2022/CGSpringChallenge2022/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/Projects/codingame/CGSpringChallenge2022/Codingame.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://H:/Projects/codingame/CGSpringChallenge2022/CGSpringChallenge2022/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../VisualStudio/strategy_game/StrategyGame/Tools/Geometry/LineSegment.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -61,7 +57,9 @@
       <option name="presentableId" value="Default" />
       <updated>1650799302423</updated>
       <workItem from="1650799304943" duration="3582000" />
-      <workItem from="1650803518333" duration="13902000" />
+      <workItem from="1650803518333" duration="14899000" />
+      <workItem from="1650968943082" duration="3148000" />
+      <workItem from="1651065090203" duration="2401000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1650800319404</created>
@@ -77,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650825942471</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="improve hero distribution">
+      <created>1650830219331</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650830219331</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +106,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="First Bot Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Bot Commit" />
+    <MESSAGE value="improve hero distribution" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve hero distribution" />
   </component>
 </project>

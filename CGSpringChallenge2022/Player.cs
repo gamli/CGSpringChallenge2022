@@ -31,10 +31,18 @@ public class Player
                          .Take(heroes.Count)
                          .ToList();
             
-            var availableHeroes = new HashSet<Hero>(heroes);
+            Console.Error.WriteLine("Threats: " + string.Join(", ", threats.Select(monster => monster.Id)));
+
+            if (threats.Any(monster => monster.IsTargetingBase))
+            {
+                Console.Error.WriteLine("Threats (targeting Base): " + string.Join(", ", threats.Where(monster => monster.IsTargetingBase).Select(monster => monster.Id)));
+                
+                threats = threats.Where(monster => monster.IsTargetingBase).Take(1).ToList();
+            }
             
             var orders = new List<(int, string)>();
 
+            var availableHeroes = new HashSet<Hero>(heroes);
             while (threats.Any() && availableHeroes.Any())
             {
                 foreach (var monster in threats)
@@ -46,15 +54,28 @@ public class Player
                     
                     var nearestHero = availableHeroes.OrderBy(hero => Geometry.DistanceSqr(hero.Position, monster.Position)).First();
                     var heroIdx = heroes.IndexOf(nearestHero);
-                    var order = "MOVE " + (int)monster.Position.X + " " + +(int)monster.Position.Y;
+                    var order = "MOVE " + (int)monster.Position.X + " " + +(int)monster.Position.Y + " Attacking " + monster.Id;
                     orders.Add((heroIdx, order));
                     availableHeroes.Remove(nearestHero);
                     
-                    Console.Error.WriteLine("Hero " + nearestHero.Id + " moving towards monster " + monster.Id);
+                    Console.Error.WriteLine($@"Hero {heroIdx} attacking monster: {order}");
                 }
             }
-            
-            orders.AddRange(availableHeroes.Select(hero => (heroes.IndexOf(hero), "WAIT")));
+
+            var availableMana = gameState.Mana(PLAYER_ME);
+            foreach (var hero in availableHeroes)
+            {
+                var heroIdx = heroes.IndexOf(hero);
+                var order = "WAIT";
+                
+                // check for spells
+                // alternatively move to a good location
+                // alternatively wait
+                
+                orders.Add((heroIdx, order));
+                
+                Console.Error.WriteLine($@"Hero {heroIdx} idle: {order}");
+            }
 
             foreach (var order in orders.OrderBy(idxCommand => idxCommand.Item1).Select(idxCommand => idxCommand.Item2))
             {
@@ -62,4 +83,9 @@ public class Player
             }
         }
     }
+
+    // private static string CheckForSpellOrder()
+    // {
+    //     
+    // }
 }

@@ -11,7 +11,7 @@ namespace CGSpringChallenge2022
             bool isControlled,
             int health,
             Vector2 trajectory,
-            bool targetingBase,
+            bool isTargetingBase,
             int isThreatForPlayer)
         {
             Id = id;
@@ -20,7 +20,7 @@ namespace CGSpringChallenge2022
             IsControlled = isControlled;
             Health = health;
             Trajectory = trajectory;
-            TargetingBase = targetingBase;
+            IsTargetingBase = isTargetingBase;
             IsThreatForPlayer = isThreatForPlayer;
         }
 
@@ -30,7 +30,7 @@ namespace CGSpringChallenge2022
         public bool IsControlled { get; }
         public int Health { get; }
         public Vector2 Trajectory { get; }
-        public bool TargetingBase { get; }
+        public bool IsTargetingBase { get; }
         public int IsThreatForPlayer { get; }
     }
 }

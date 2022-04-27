@@ -7,6 +7,10 @@
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Include="PlayerTurn.fs" />
+    </ItemGroup>
+
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
       <Exec Command="&quot;$(SolutionDir)CSharpSourceCombiner\SourceCombiner\Binary\SourceCombiner.exe&quot; &quot;$(SolutionDir)CGSpringChallenge2022\CGSpringChallenge2022.csproj&quot; &quot;$(SolutionDir)Codingame.cs&quot;" />
     </Target>
