@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>10</LangVersion>
         <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>CGSpringChallenge2022</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
